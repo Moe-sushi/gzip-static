@@ -1,1 +1,1 @@
-curl static binary
+gzip static binary
