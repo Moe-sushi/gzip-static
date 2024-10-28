@@ -8,8 +8,8 @@ mkdir output
 git clone https://git.savannah.gnu.org/git/gzip
 cd gzip
 ./bootstrap
-./configure LDFLAGS="-static" --enable-static --disable-shared
-make -j8 LDFLAGS="--static"
+./configure LDFLAGS="-static -Wl,--gc-sections -ffunction-sections -fdata-sections" --enable-static --disable-shared
+make -j8 LDFLAGS="--static -Wl,--gc-sections -ffunction-sections -fdata-sections"
 strip gzip
 upx gzip
 cp gzip ../output/
